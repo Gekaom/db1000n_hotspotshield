@@ -115,7 +115,7 @@ do
 				then
 					if pgrep "$EXE" > /dev/null
 					then
-						tput setaf 2;echo "$(date +%T) hotspotshield still active and $EXE running";tput setaf 6; sleep  $timing
+						tput setaf 2;echo "$(date +%T) hotspotshield ${location[$die1]} still active and $EXE running";tput setaf 6; sleep  $timing
 					else
 						connect
 					fi
