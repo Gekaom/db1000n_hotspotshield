@@ -7,7 +7,7 @@
 #you can choose whatever server to connect to. to change server change RU to another country from country list availibaly by commend hotspotshield locations
 #скрипт для автоматичного встановлення останньої версії db1000n та запуску тільки якщо hotspotshield під'єднаний до сервера.список локацій доступний по команді hotspotshield locations
 #сервер можете вибрати будь-який,але найефективніше працювати з Росії. 
-№location=(BY AZ GE MD AM BG HR FR IL IN IT KG KZ RO ES SE SK CH TR)
+#location=(BY AZ GE MD AM BG HR FR IL IN IT KG KZ RO ES SE SK CH TR)
 location=(DE AZ GE MD AM BG HR FR IL IN IT KG KZ RO ES SE SK CH TR)
 location_full=(Germany Azerbaijan Georgia Moldova Armenia Bulgaria Croatia France Israel India Italy Kyrgyzstan Kazakhstan Romania Spain Sweden Slovakia Switzerland Turkey)
 
