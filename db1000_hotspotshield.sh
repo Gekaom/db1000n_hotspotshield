@@ -7,7 +7,9 @@
 #you can choose whatever server to connect to. to change server change RU to another country from country list availibaly by commend hotspotshield locations
 #скрипт для автоматичного встановлення останньої версії db1000n та запуску тільки якщо hotspotshield під'єднаний до сервера.список локацій доступний по команді hotspotshield locations
 #сервер можете вибрати будь-який,але найефективніше працювати з Росії. 
-location=(BY AZ GE MD AM BG HR FR IL IN IT KG KZ RO ES SE SK CH TR)
+№location=(BY AZ GE MD AM BG HR FR IL IN IT KG KZ RO ES SE SK CH TR)
+location=(DE AZ GE MD AM BG HR FR IL IN IT KG KZ RO ES SE SK CH TR)
+location_full=(Germany Azerbaijan Georgia Moldova Armenia Bulgaria Croatia France Israel India Italy Kyrgyzstan Kazakhstan Romania Spain Sweden Slovakia Switzerland Turkey)
 
 #продолжительность работы скрипта до переподключения VPN сервера
 #the duration of the script until the VPN server is reconnected
@@ -107,7 +109,7 @@ do
 					pgrep -f "$EXE" | xargs kill -9; sleep 2s;  \
 				fi 	
 					let "die1 = RANDOM % ${#location[*]}"
-					tput setaf 3; echo "$(date +%T) connecting ${location[$die1]} vpn"; hotspotshield connect ${location[$die1]}; sleep 5s; \
+					tput setaf 3; echo "$(date +%T) connecting ${location_full[$die1]} vpn"; hotspotshield connect ${location[$die1]}; sleep 5s; \
 					echo "starting new instance $EXE"; tput setaf 6; \
 					connect
 			else
@@ -115,7 +117,7 @@ do
 				then
 					if pgrep "$EXE" > /dev/null
 					then
-						tput setaf 2;echo "$(date +%T) hotspotshield ${location[$die1]} still active and $EXE running";tput setaf 6; sleep  $timing
+						tput setaf 2;echo "$(date +%T) hotspotshield ${location_full[$die1]} still active and $EXE running";tput setaf 6; sleep  $timing
 					else
 						connect
 					fi
@@ -140,6 +142,7 @@ do
 pgrep -f "$EXE" | xargs kill -9; sleep 2s;  \
 if ! $use_proxy 
 	then
+	tput setaf 3;hotspotshield account status  | grep 'signed'
 	tput setaf 3; echo "$(date +%T) disconnecting from hotspotshield server loop"; hotspotshield disconnect ; tput setaf 6
 fi
 done
