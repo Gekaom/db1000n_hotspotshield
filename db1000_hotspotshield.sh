@@ -8,8 +8,10 @@
 #скрипт для автоматичного встановлення останньої версії db1000n та запуску тільки якщо hotspotshield під'єднаний до сервера.список локацій доступний по команді hotspotshield locations
 #сервер можете вибрати будь-який,але найефективніше працювати з Росії. 
 #location=(BY AZ GE MD AM BG HR FR IL IN IT KG KZ RO ES SE SK CH)
-location=(DE AZ GE MD AM BG HR FR IL IN IT KG KZ RO ES SE SK CH)
-location_full=(Germany Azerbaijan Georgia Moldova Armenia Bulgaria Croatia France Israel India Italy Kyrgyzstan Kazakhstan Romania Spain Sweden Slovakia Switzerland)
+#location=(DE AZ GE MD AM BG HR FR IL IN IT KG KZ RO ES SE SK CH)
+#location_full=(Germany Azerbaijan Georgia Moldova Armenia Bulgaria Croatia France Israel India Italy Kyrgyzstan Kazakhstan Romania Spain Sweden Slovakia Switzerland)
+location=(RU BY MD TR DE AZ GE MD AM BG HR FR IL IN IT KG KZ RO ES SE SK CH)
+location_full=(rushka belorushka Moldova Turkey Germany Azerbaijan Georgia Moldova Armenia Bulgaria Croatia France Israel India Italy Kyrgyzstan Kazakhstan Romania Spain Sweden Slovakia Switzerland)
 
 #продолжительность работы скрипта до переподключения VPN сервера
 #the duration of the script until the VPN server is reconnected
@@ -139,7 +141,7 @@ do
 			fi
 		fi	
 	done
-pgrep -f "$EXE" | xargs kill -9; sleep 2s;  \
+pgrep -f "$EXE" | xargs kill -9; sleep 3s;  \
 if ! $use_proxy 
 	then
 	tput setaf 3;hotspotshield account status  | grep 'signed'
