@@ -82,7 +82,7 @@ function connect {
 if $use_proxy
 then
 	./db1000n -enable-self-update -self-update-check-frequency=1h -restart-on-update=false \
-        	 --proxy '{{ join (split (get_url "https://raw.githubusercontent.com/porthole-ascend-cinnamon/proxy_scraper/main/proxies.txt") "\n") "," }}'&
+        	 --proxy '{{ join (split (get_url "https://raw.githubusercontent.com/OleksandrBlack/proxy-scraper-checker/main/proxies/proxies.txt") "\n") "," }}'&
 else
         ./db1000n -enable-self-update -self-update-check-frequency=1h -restart-on-update=false&
 fi
